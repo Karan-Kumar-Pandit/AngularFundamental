@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsersapiService } from '../usersapi.service';
 
 
@@ -10,11 +11,13 @@ import { UsersapiService } from '../usersapi.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private service: UsersapiService) { }
+  constructor(private service: UsersapiService,private PageNavigation: Router) { }
 
   ngOnInit(): void {
   }
 
+
+// --------------------------------------------------------------------
   SignupUsers = new FormGroup({
     Email: new FormControl(''),
     Password: new FormControl(''),
@@ -24,19 +27,32 @@ export class LoginComponent implements OnInit {
   get Email() { return this.SignupUsers.get('Email') }
   get Password() { return this.SignupUsers.get('Password') }
 
-
-  GetUsersValue() {
-    let UsersDetails = this.SignupUsers.value;
-    console.log(UsersDetails);
-    console.log(UsersDetails.Email);
-    console.log(UsersDetails.PSassword);
-    this.service.addPost(UsersDetails).subscribe(response => {
-      console.log(response.toString);
+// --------------------------------------------------------------------
+GetResponse :any;
+  UsersLogin() {
+    this.service.addPost(this.SignupUsers.value).subscribe((Response)=>{
+      console.log("Function Working");
+      console.log(Response);
+        this.GetResponse = Response;
+      if(this.GetResponse.status == 200){
+        window.alert("Login successfully.");
+        var userEmail = this.GetResponse.email;
+        localStorage.setItem('LoggedInUser',JSON.stringify(this.SignupUsers.value));
+        sessionStorage.setItem('LoggedInUser',JSON.stringify(this.SignupUsers.value));
+      
+        this.PageNavigation.navigate(['users-details'])
+      }else{
+        window.alert("Login failed.");
+      }
     });
-
-
-
   }
+
+// --------------------------------------------------------------------
+
+  // AlertDialogBox(){
+  //   window.alert("sometext");
+  // }
+// --------------------------------------------------------------------
 
 
 }

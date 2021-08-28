@@ -15,6 +15,10 @@ import { FooterComponent } from './utils/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UsersDetailsComponent } from './users-detalis/users-details.component';
+import { EditUsersComponent } from './edit-users/edit-users.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormComponent } from './form/form.component';
+import { NgxCsvParserModule } from 'ngx-csv-parser';
 
 
 @NgModule({
@@ -30,6 +34,9 @@ import { UsersDetailsComponent } from './users-detalis/users-details.component';
     NavbarComponent,
     FooterComponent,
     UsersDetailsComponent,
+    EditUsersComponent,
+    FormComponent,
+    
     
   ],
   imports: [
@@ -37,7 +44,10 @@ import { UsersDetailsComponent } from './users-detalis/users-details.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule,
+    NgxCsvParserModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

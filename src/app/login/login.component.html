@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <!-- ------------------------------------------------------------------ -->
-<form [formGroup]="SignupUsers" (ngSubmit)="GetUsersValue()">
+<form [formGroup]="SignupUsers" (ngSubmit)="UsersLogin()">
     <div class="container  mt-5 mb-5">
         <div class="row d-flex justify-content-center">
             <div class="col-md-6 bg-light">
@@ -12,30 +12,57 @@
                     <div class="col-12">
                         <div class="form-group my-2">
                             <label for="">Email</label>
-                            <input formControlName="Email" type="email" required
-                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control UserEmail my-2"
-                                id="UserEmail" placeholder="Enter email">
+                            <input formControlName="Email" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control UserEmail my-2" id="UserEmail" placeholder="Enter email">
                         </div>
                     </div>
 
                     <div class="from-group my-2">
                         <label for="">Password</label>
-                        <input formControlName="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                            class="form-control" type="password" minlength="8" maxlength="20" required
-                            placeholder="Enter password">
+                        <input formControlName="Password" class="form-control" type="password" minlength="8" maxlength="20" required placeholder="Enter password">
 
                     </div>
                 </div>
 
-                <button type="submit" [disabled]="!SignupUsers.valid" class="btn btn-success">Login</button>
+                <br>
 
+                <div>
+                    <button type="submit" [disabled]="!SignupUsers.valid" class="btn btn-success"><span
+                            class="p-5">LOGIN</span></button>
+                </div>
+                <br>
+                <div>
+
+                </div>
                 <br><br>
 
             </div>
         </div>
     </div>
 </form>
+<div class="" style="height: 50vh;"></div>
+
 <!-- ------------------------------------------------------------------ -->
 
-
 <app-footer></app-footer>
+
+
+<!-- pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" -->
+
+<!-- ------------------------------------------------------------------ -->
+<span class="AlertDialogBox">
+    <div class="card m-5" style="width: 36rem; height: 12rem;">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+</span>
+
+<!-- ------------------------------------------------------------------ -->
+
+<!-- <button (click)="AlertDialogBox()" class="btn btn-success"><span
+    class="p-5">LOGIN</span></button> -->

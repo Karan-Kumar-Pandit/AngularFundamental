@@ -1,12 +1,19 @@
 // body{
 //     background-image: url("assets/image/1");
 // }
-
 .inventory-body {
-    position: fixed; 
-     top: 0; 
-     left: 0;
-     min-width: 100%;
-     min-height: 100%;
-     background-image: url('/assets/imgage/1.jpg')
-   }
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    background-image: url('/assets/imgage/1.jpg')
+}
+
+.AlertDialogBox {
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

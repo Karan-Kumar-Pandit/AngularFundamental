@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<div class="container">
+
+    <div style="height: 10vh;"></div>
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-6 bg-light card p-4">
+                <div class="col-md-12">
+                    <h3 style="text-align: center;">Edit Users</h3>
+                </div>
+                <br>
+                <form [formGroup]="EditUsers" (ngSubmit)="UpdateUsers()" class="needs-validation" novalidate>
+                    <div class="form-row">
+                        <div class="mb-3">
+                            <label for="validationCustom01">Email</label>
+                            <input value='{{UsersEmail}}' type="text" formControlName="Email" class="form-control" id="validationCustom01" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class=" mb-3">
+                            <label for="validationCustom02">Password</label>
+                            <input type="text" formControlName="Password" class="form-control" id="validationCustom02" value='{{UsersPassword}}' required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <button class="btn btn-primary" type="submit">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- --------------------------------------------------------------------- -->
+    <script>
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                var forms = document.getElementsByClassName('needs-validation');
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
+    <!-- --------------------------------------------------------------------- -->
+</div>

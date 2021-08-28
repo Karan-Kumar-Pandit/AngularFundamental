@@ -1,0 +1,171 @@
+<app-navbar></app-navbar>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br><br>
+            <form [formGroup]="AdmissonForm" (ngSubmit)="GetFormValue()">
+                <div class="row">
+                    <!-- ------------------------------- -->
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="firstNameOfUsers">First Name</label>
+                                    <input type="text" formControlName="firstname" required pattern="[A-Za-z]*" minlength="2" maxlength="20" class="form-control my-2" id="firstNameOfUsers" placeholder="Enter your firstname">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="lastNameOfUsers">Last Name</label>
+                                        <input type="text" formControlName="lastname" required pattern="[A-Za-z]*" minlength="2" maxlength="20" class="form-control my-2" id="lastNameOfUsers" placeholder="Enter your lastname">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ------------------------------- -->
+                    <div class="col-md-2 ">
+                        <div class="row float-end">
+                            <div class="col-md-2">
+                                <input formControlName="picture" type="file" id="imgupload" style="display:none" required class="" />
+                                <button type="button" id="OpenImgUpload" onclick="$('#imgupload').trigger('click');" style="border: none; background-color: rgba(255, 255, 255, 0);">
+                                  <span *ngIf="isOldImage==true">
+                                    <img src="https://www.pngkey.com/png/detail/662-6623422_male-icon-testimonial-page.png"
+                                    alt="" class="mt-3" style="height: 140px; width: 140px;">
+
+                                  </span>
+                                  <span *ngIf="isNewImage==true">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWXv7hhlX0NEBEOjVl9XnRSmIWzZF1ixNpgA&usqp=CAU"
+                                    alt="" class="mt-3" style="height: 140px; width: 130px;">
+
+                                  </span>
+
+                                  
+                                </button>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <!-- ------------------------------- -->
+
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <label for="formOfUsersName">Username</label>
+                            <input type="text" formControlName="usersname" required pattern="[A-Za-z]*" minlength="2" maxlength="30" class="form-control my-2" id="formOfUsersName" placeholder="Enter your username">
+                        </div>
+                    </div>
+                    <!-- ------------------------------- -->
+
+                </div>
+                <!-- ------------------------------- -->
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="fatherNameOfUsers">Father Name</label>
+                        <input type="text" formControlName="fathername" required minlength="2" maxlength="20" class="form-control my-2" id="fatherNameOfUsers" placeholder="Enter your father name">
+                    </div>
+                </div>
+
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="motherNameOfUsers">Mother Name</label>
+                        <input type="text" formControlName="mothername" required minlength="2" maxlength="20" class="form-control my-2" id="motherNameOfUsers" placeholder="Enter your mother name">
+                    </div>
+                </div>
+
+                <!-- ---------------------------------------------------- -->
+                <div class="row">
+                    <label for="">Gender</label>
+                    <!-- -------------------- -->
+                    <div class="col-md-4 my-2">
+                        <input type="radio" formControlName="gender" value="Male" required class=""><span class="mx-2">Male</span>
+                    </div>
+                    <!-- -------------------- -->
+                    <div class="col-md-4 my-2">
+                        <input type="radio" formControlName="gender" value="Female" required class=""><span class="mx-2">Female</span>
+                    </div>
+                    <!-- -------------------- -->
+                    <div class="col-md-4 my-2">
+                        <input type="radio" formControlName="gender" value="Others" required class=""><span class="mx-2">Others</span>
+                    </div>
+                    <!-- -------------------- -->
+                </div>
+
+                <!-- ---------------------------------------------------- -->
+                <div class="row">
+                    <!-- -------------------------------- -->
+                    <div class="col-4">
+                        <div class="form-group my-2">
+                            <label for="formOfUsersdob">Date Of Birth</label>
+                            <input type="date" formControlName="dateofbirth" required class="form-control my-2" id="formOfUsersdob">
+                        </div>
+                    </div>
+
+                    <!-- -------------------------------- -->
+                    <div class="col-8">
+                        <div class="form-group my-2">
+                            <label for="formOfUsersEmail">Email</label>
+                            <input type="email" formControlName="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control my-2" id="formOfUsersEmail" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <!-- -------------------------------- -->
+
+                    <div class="form-group my-2">
+                        <label for="passwordOfEmail">Password</label>
+                        <input type="password" formControlName="password" minlength="8" maxlength="20" required class="form-control my-2" id="passwordOfEmail" placeholder="Enter password">
+                    </div>
+                    <!-- -------------------------------- -->
+
+                    <div class="form-group my-2">
+                        <label for="phonenumber">Phone Number</label>
+                        <input type="varchar" formControlName="phonenumber" minlength="10" maxlength="10" required class="form-control my-2" id="phonenumber" placeholder="Enter your number">
+                    </div>
+                    <!-- ---------------------------------------------------- -->
+                    <div class=" dropdown-container form-group my-4">
+
+                        <div class="col-md-4">
+                            <select class="selectpicker py-1" style="width: 20rem; border-radius: 4px;  border: 1px solid rgb(199, 199, 199);" formControlName="cityname">
+                            <option *ngFor="let option of options" [value]="">{{option}}</option>                                                                                                                                                                                          
+                          </select>
+                        </div>
+
+                    </div>
+                    <br><br>
+
+                    <!-- ---------------------------------------------------- -->
+                    <div class="form-group my-2">
+                        <label for="descriptionOfUsers">Users Description</label>
+                        <textarea formControlName="description" id="descriptionOfUsers" cols="60" rows="10" minlength="50" maxlength="1000" class="form-control my-2" required placeholder="Short description of Users.">Users Description</textarea>
+                    </div>
+                    <!-- ---------------------------------------------------- -->
+
+                    <div class="form-group my-2">
+                        <input type="checkbox" formControlName="checkbox" required><span class="mx-2">Remember me
+                            !!!</span>
+                    </div>
+                    <!-- ---------------------------------------------------- -->
+                    <!-- <div>
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div> -->
+
+                    <div class="col-md-12">
+                        <button type="submit" [disabled]="AdmissonForm.invalid" class="btn nextbutton btn-primary m-2 px-5">Submit</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="" style="height: 50vh;"></div>
+
+<app-footer></app-footer>

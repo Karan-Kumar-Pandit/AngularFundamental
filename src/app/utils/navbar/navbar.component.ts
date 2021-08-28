@@ -11,5 +11,11 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  values = '';
+  
+firechange(newValue:any) {
+  this.values = (newValue.target as HTMLInputElement).value;
+   console.warn(this.values);
+  }
 
 }
